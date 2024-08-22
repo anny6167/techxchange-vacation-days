@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_F698D105-C36B-47AF-8CDA-4E15AC5F1811" id="_F6C727C2-1470-4A21-AEDA-35A457D405BA" name="DMN_8E846D47-F0AA-4685-A1D0-370F347BE4DC" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_F698D105-C36B-47AF-8CDA-4E15AC5F1811" id="_F6C727C2-1470-4A21-AEDA-35A457D405BA" name="DMN_8E846D47-F0AA-4685-A1D0-370F347BE4DC">
   <inputData name="Age" id="_6677622B-1D27-44D5-B96E-1EA78E0ECB7D">
     <variable name="Age" id="_A3233ED0-51F4-4058-801B-766D1D880653" typeRef="number" />
   </inputData>
@@ -31,11 +31,21 @@
           <text>Years of Service</text>
         </inputExpression>
       </input>
-      <output id="_F2CB6D17-05C8-4409-A34C-D752ECB91C2D" name="Output-1" typeRef="number" />
+      <output id="_F2CB6D17-05C8-4409-A34C-D752ECB91C2D" name="Output-1" typeRef="number">
+        <description>0</description>
+        <outputValues id="_2B6A93BF-029E-4619-8F99-CED8C520AF24">
+          <description>0</description>
+          <text>0</text>
+        </outputValues>
+        <defaultOutputEntry id="_90514742-FD0A-4E48-A637-79F9EFFEE385">
+          <description>0</description>
+          <text>0</text>
+        </defaultOutputEntry>
+      </output>
       <annotation name="Annotations" />
       <rule id="_F3DA08F2-B0A7-4A4B-8F39-8F228D7D6A7A">
         <inputEntry id="_FF2F1715-4E8E-422F-9D14-11161180E1C2">
-          <text>&lt;18, &gt;=60</text>
+          <text>&lt;18,&gt;=60</text>
         </inputEntry>
         <inputEntry id="_FD4AAB94-E87D-46E0-8C32-1B123AF1CB33">
           <text>-</text>
@@ -71,6 +81,53 @@
     <informationRequirement id="_A73F6FDA-3396-4872-8C72-A90B69781F39">
       <requiredInput href="#_84D2C83B-CE2C-4B48-9EC6-3119BF2E1015" />
     </informationRequirement>
+    <decisionTable id="_1B2CAEB1-CED7-4F07-BE55-9338FFD4C2C8" hitPolicy="COLLECT" label="Extea days case-2" aggregation="MAX">
+      <input id="_3BD4E462-14BD-4B27-A010-39D83CEF891D">
+        <inputExpression id="_7135E8D9-B32C-49D9-AAD3-71C35C017BC3" typeRef="number">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="_33D72BE5-0C91-46D8-A423-FCE6823A01CA">
+        <inputExpression id="_D5685DE3-4810-49B5-B70B-92870122D215" typeRef="number">
+          <text>Years of Service</text>
+        </inputExpression>
+      </input>
+      <output id="_4E3A1BD2-E1A1-4070-8C16-9074F9AE5F6C" name="Output-1">
+        <defaultOutputEntry id="_E0E70E00-C982-404B-84DF-113E88C14BA1">
+          <description>0</description>
+          <text>0</text>
+        </defaultOutputEntry>
+      </output>
+      <annotation name="Annotations" />
+      <rule id="_BE11D299-6147-4B3A-BC29-99207953CC80">
+        <inputEntry id="_4CF53915-AB40-48D9-9C43-08E311016E11">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_6E44FCDB-9FA2-4717-9DA1-C5B53F794F01">
+          <text>&gt;=30</text>
+        </inputEntry>
+        <outputEntry id="_F935B813-D547-4CE6-BB12-0B00676B1719">
+          <text>4</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_B50DAE45-7D61-4A7A-82B3-B5ED65A64028">
+        <inputEntry id="_808AE8A4-7402-4670-81CA-9AC81CE42A1F">
+          <text>&gt;=60</text>
+        </inputEntry>
+        <inputEntry id="_9AD9C42C-BD85-4271-9E8A-0B738E554E7C">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_73216E50-839B-4D9F-B9B0-BCB1C596DCCC">
+          <text>3</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <decision name="Extra days case-3" id="_40DC24D1-3A37-4F6C-A13E-E2AFEC25F4A4">
     <variable name="Extra days case-3" id="_688EEC88-9D8E-46EB-BCC4-3B1DFEFCD1F2" />
@@ -80,6 +137,53 @@
     <informationRequirement id="_FC65C5D8-5AFB-4300-8468-9B581B5880A7">
       <requiredInput href="#_84D2C83B-CE2C-4B48-9EC6-3119BF2E1015" />
     </informationRequirement>
+    <decisionTable id="_169699D5-D560-457E-A373-D5AA2E77F4B1" hitPolicy="COLLECT" label="Extra days case-3" aggregation="MAX">
+      <input id="_3E575069-BFFA-48D3-877E-2F6F49776981">
+        <inputExpression id="_123F1122-F662-45C6-980D-7CE9D4CD983F" typeRef="number">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="_C80BB6B1-BF1F-43AA-BB1C-75DA970F6847">
+        <inputExpression id="_15F579E1-5F24-4B27-979F-7DAB3A371927" typeRef="number">
+          <text>Years of Service</text>
+        </inputExpression>
+      </input>
+      <output id="_0C2A4E3D-C434-44D4-AAAA-15339F6F7D48" name="Output-1">
+        <defaultOutputEntry id="_FB569EC5-6639-4E57-B025-5485BF5A475C">
+          <description>0</description>
+          <text>0</text>
+        </defaultOutputEntry>
+      </output>
+      <annotation name="Annotations" />
+      <rule id="_226045BC-028D-4B1B-B342-0FC161719651">
+        <inputEntry id="_386E21F4-EEC5-4077-B848-BB3CECCB97F5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_4CF7B860-5867-4B81-9854-560F8640B099">
+          <text>[15..30]</text>
+        </inputEntry>
+        <outputEntry id="_82FB08D8-D122-4F23-9937-7170D18799A7">
+          <text>3</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_FB34AF57-0846-4959-9E15-FAF13739621E">
+        <inputEntry id="_23C9392C-E907-4B3C-B47F-434D97CA007D">
+          <text>&gt;=45</text>
+        </inputEntry>
+        <inputEntry id="_B23D79A2-4B4B-45A2-BFBE-313FF30F2200">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_C5BB5F79-C6F5-4F07-8EE7-72451745439C">
+          <text>2</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_BE5A9F4C-9C56-486A-B00F-B3C7AD229012" name="Default DRD" useAlternativeInputDataShape="false">
@@ -92,6 +196,20 @@
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E2BFC700-4850-4E59-A801-D3AEF6791981">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1B2CAEB1-CED7-4F07-BE55-9338FFD4C2C8">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_169699D5-D560-457E-A373-D5AA2E77F4B1">
             <kie:width>60</kie:width>
             <kie:width>118</kie:width>
             <kie:width>118</kie:width>
